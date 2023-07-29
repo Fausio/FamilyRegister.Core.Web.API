@@ -35,8 +35,8 @@ namespace Data.Migrations
                     b.Property<string>("email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("members")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("members")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("money")
                         .HasColumnType("decimal(18,2)");

@@ -21,7 +21,7 @@ namespace Data.Migrations
                     phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     money = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    members = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    members = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

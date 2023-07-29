@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(FamilyRegisterDbContext))]
-    [Migration("20230729133438_v1")]
+    [Migration("20230729143510_v1")]
     partial class v1
     {
         /// <inheritdoc />
@@ -38,8 +38,8 @@ namespace Data.Migrations
                     b.Property<string>("email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("members")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("members")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("money")
                         .HasColumnType("decimal(18,2)");

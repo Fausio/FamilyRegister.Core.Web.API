@@ -13,12 +13,8 @@ namespace Domain.Models
         public string? phone { get; set; }
         public string? address { get; set; }
         public decimal money { get; set; }
-        public string? members { get; set; }
+        public int members { get; set; }
+         
 
-
-        public Family()
-        {
-            this.money = 0;
-        }
     }
 }
