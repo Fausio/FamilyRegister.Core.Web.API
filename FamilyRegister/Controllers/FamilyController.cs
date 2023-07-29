@@ -51,7 +51,7 @@ namespace FamilyRegister.Controllers
             {
 
                 var model = await _db.Families.FirstOrDefaultAsync(x => x.Id == Id);
-                _db.Families.Remove(model); 
+                _db.Families.Remove(model);
                 await _db.SaveChangesAsync();
 
                 return Ok();
@@ -69,6 +69,24 @@ namespace FamilyRegister.Controllers
             try
             {
                 await _db.Families.AddAsync(model);
+
+                await _db.SaveChangesAsync();
+
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        [HttpPut("update")]
+        public async Task<IActionResult> Update([FromBody] Family model)
+        {
+            try
+            {
+                _db.Families.Update(model);
 
                 await _db.SaveChangesAsync();
 
