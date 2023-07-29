@@ -45,7 +45,7 @@ namespace FamilyRegister.Controllers
         }
 
         [HttpDelete("id")]
-        public async Task<IActionResult> delete(int Id)
+        public async Task<IActionResult> Delete(int Id)
         {
             try
             {
