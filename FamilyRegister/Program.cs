@@ -1,3 +1,6 @@
+using Data.AppDBContext;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var connectionString = builder.Configuration.GetConnectionString("SqlServer");
+builder.Services.AddDbContext<FamilyRegisterDbContext>(option => option.UseSqlServer(connectionString));
 
 var app = builder.Build();
 

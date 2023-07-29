@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    internal class Common
+    public abstract class Common
     {
+        public int Id { get; set; }
     }
 }
