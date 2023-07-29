@@ -44,8 +44,8 @@ namespace FamilyRegister.Controllers
 
         }
 
-        [HttpDelete("id")]
-        public async Task<IActionResult> Delete(int Id)
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete([FromRoute] int Id)
         {
             try
             {
