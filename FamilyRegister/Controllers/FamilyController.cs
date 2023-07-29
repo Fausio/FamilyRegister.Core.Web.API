@@ -21,7 +21,7 @@ namespace FamilyRegister.Controllers
         {
             try
             {
-                return Ok(await _db.Families.ToListAsync());
+                return Ok(await _db.Families.OrderByDescending(x => x.Id).ToListAsync());
             }
             catch (Exception ex)
             {
@@ -30,12 +30,12 @@ namespace FamilyRegister.Controllers
 
         }
 
-        [HttpGet("id")]
-        public async Task<IActionResult> ReadById(int Id)
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> ReadById([FromRoute] int id)
         {
             try
             {
-                return Ok(await _db.Families.FirstOrDefaultAsync(x => x.Id == Id));
+                return Ok(await _db.Families.FirstOrDefaultAsync(x => x.Id == id));
             }
             catch (Exception ex)
             {
