@@ -33,6 +33,16 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors(policy =>
+
+{
+    policy.AllowAnyHeader();
+    policy.AllowAnyOrigin();
+    policy.AllowAnyMethod();
+}
+
+
+);
 
 app.UseAuthorization();
 
@@ -42,7 +52,7 @@ using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider
         .GetRequiredService<FamilyRegisterDbContext>();
-     
+
     dbContext.Database.Migrate();
 }
 await Seed.Run();
